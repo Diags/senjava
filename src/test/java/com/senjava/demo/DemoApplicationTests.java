@@ -35,7 +35,7 @@ class DemoApplicationTests {
                 .accept(MediaType.APPLICATION_JSON))
                 .andReturn();
         System.out.println(mvcResult.getResponse().getContentAsString()+ " this is response");
-        Mockito.verify(voitureRepository).findAll();
+
     }
 
 }

@@ -60,6 +60,29 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-parent</artifactId>
+            <version>1.4.10</version>
+            <type>pom</type>
+        </dependency>
+        <!-- JCache API (Hazelcast is an implementation) -->
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-spring</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
@@ -72,6 +95,27 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.4.10</version>
+                <configuration>
+                    <targetClasses>
+                        <param>
+                            com.senjava.demo.service.*
+                        </param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>com.senjava.demo.test.TestPitestUnit</param>
+                    </targetTests>
+                </configuration>
+            </plugin>
+
+
+            <!-- https://github.com/hcoles/pitest/issues/284 -->
+            <!-- Need this to support JUnit 5 -->
+
+
         </plugins>
     </build>
 
